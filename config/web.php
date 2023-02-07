@@ -10,13 +10,14 @@ $config = [
     'layout' => 'forms',
     'name' => 'User form',
     'language' => 'ru',
-    'defaultRoute' => 'form/index',
+    // 'defaultRoute' => 'form/list',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
         'request' => [
+            'baseUrl' => '',
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'lmGHZA8ijwFUaQKXh8AemTI45voRn3b1',
         ],
@@ -28,7 +29,7 @@ $config = [
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'form/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -47,14 +48,29 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => true,
             'rules' => [
+                '' => 'form/home',
+                'form' => 'form/home',
+                '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
             ],
         ],
-        */
+        // 'urlManager' => [
+        //     'enablePrettyUrl' => true,
+        //     'showScriptName' => false,
+        //     // 'enableStrictParsing' => true,
+        //     'rules' => [
+        //         '/' => 'form/list',
+        //         'list' => 'form/list',
+        //         'add' => 'form/add',
+        //         'test' => 'form/test',
+        //         'error' => 'form/error',
+        //     ],
+        // ],
+        
     ],
     'params' => $params,
 ];

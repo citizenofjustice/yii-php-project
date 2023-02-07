@@ -1,0 +1,27 @@
+.users-list {
+  margin: 50px auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 100px auto;
+  width: fit-content;
+}
+
+.list-element {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px 0;
+  display: flex;
+}
+
+.fullname {
+  color: darkslategray;
+  padding-right: 10px;
+}
+.email {
+  color: brown;
+}
+.status {
+  padding-left: 10px;
+}
