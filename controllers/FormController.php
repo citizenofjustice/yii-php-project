@@ -3,11 +3,9 @@
 namespace app\controllers;
 
 use Yii;
-use yii\web\Controller;
-// use app\models\generated\Users;
 use app\models\Userz;
 
-class FormController extends Controller {
+class FormController extends \yii\web\Controller {
 
     /**
      * @inheritdoc

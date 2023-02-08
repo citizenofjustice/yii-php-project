@@ -51,10 +51,11 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'enableStrictParsing' => true,
+            // 'enableStrictParsing' => true,
             'rules' => [
                 '' => 'form/home',
                 'form' => 'form/home',
+                'blog' => 'blog/home',
                 '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
             ],
         ],

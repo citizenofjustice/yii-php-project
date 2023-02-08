@@ -21,8 +21,10 @@
     </head>
     <body>
         <?php $this->beginBody() ?>
-
-        <?= $content ?>
+        <?php require_once('header.php') ?>
+        <div>
+            <?= $content ?>
+</div>
         
         <?php $this->endBody() ?>
     </body>
