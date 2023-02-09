@@ -10,7 +10,7 @@ use app\models\Userz;
 $script = <<<JS
     $(document).ready( function () {
         $("#store-user").on("click", function() {
-            $.pjax.reload({container:"#users-table"}); 
+            $.pjax.reload({container:"#users-list"}); 
         });
     });
 JS;
@@ -23,7 +23,7 @@ $model = new Userz();
 ?>
 
 
-<section class="content">
+<section class="users">
     <?= 
         // render input view and passing down created model
         $this->render('input', ['model' => $model])
@@ -31,7 +31,7 @@ $model = new Userz();
     <?php
         // calling pjax widget
         Pjax::begin([
-        'id' => 'users-table',
+        'id' => 'users-list',
         'enablePushState' => false,
         'enableReplaceState' => false,
     ]); ?>

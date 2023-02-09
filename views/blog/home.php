@@ -3,6 +3,7 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\bootstrap4\LinkPager;
 use app\models\Articles;
 
 ?>
@@ -41,5 +42,10 @@ use app\models\Articles;
             </li>
         <?php endforeach; ?>
     </ul>
+    <?= LinkPager::widget([
+        'pagination' => $pages,
+        'options' => ['class' => 'pagination justify-content-center pg-blue mb-0'],
+        'linkOptions' => ['class' => 'page-link'],
+    ]) ?>
     <?php } ?>
 </section>

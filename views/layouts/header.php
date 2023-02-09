@@ -1,7 +1,25 @@
 <?php
 
+/** @var yii\web\View $this */
+
 use yii\helpers\Url;
 use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+// use yii\widgets\Pjax;
+use app\models\Articles;
+
+$model = new Articles();
+
+// script for triggering user list reload
+// $script = <<<JS
+//     $(document).ready( function () {
+//         $("#search-bar").on("submit", function() {
+//             // $.pjax.reload({container:"#users-list"}); 
+//         });
+//     });
+// JS;
+
+// $this->registerJs($script);
 
 ?>
 
@@ -21,6 +39,18 @@ use yii\helpers\Html;
                 </li>
                 <li class="nav-item">
                     <?= Html::a('Добавить статью', Url::toRoute('blog/new_article'), ['class' => 'navbar-brand border rounded bg-light text-center p-2']) ?>
+                </li>
+                <li class="nav-item">
+                <?php $form = ActiveForm::begin([
+                    'id' => 'search-form',
+                    // action triggered by submitting form
+                    'action' => ['blog/find_article'],
+                    'method' => 'POST',
+                    'options' => ['data' => ['pjax' => true]],
+                ]) ?>
+                    <?= $form->field($model, 'author')->label(false) ?>
+                <?php ActiveForm::end() ?>
+                    
                 </li>
             </ul>
         </div>
